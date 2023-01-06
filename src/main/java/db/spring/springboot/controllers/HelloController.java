@@ -1,4 +1,4 @@
-package web.controllers;
+package db.spring.springboot.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,7 +13,7 @@ public class HelloController {
     public String printWelcome(ModelMap model) {
         List<String> messages = new ArrayList<>();
         messages.add("Hello!");
-        messages.add("Task 2-2-3");
+        messages.add("3-3-1 Spring Boot application");
         messages.add("");
         model.addAttribute("messages", messages);
         return "index";

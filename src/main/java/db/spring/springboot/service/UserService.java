@@ -1,7 +1,6 @@
-package web.service;
+package db.spring.springboot.service;
 
-import org.springframework.transaction.annotation.Transactional;
-import web.model.User;
+import db.spring.springboot.model.User;
 
 import java.util.List;
 

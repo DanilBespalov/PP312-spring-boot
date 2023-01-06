@@ -1,11 +1,17 @@
-package web.controllers;
+package db.spring.springboot.controllers;
 
+import db.spring.springboot.model.User;
+import db.spring.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import web.model.User;
-import web.service.UserService;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -18,7 +24,7 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
-    @GetMapping("/{id}}")
+    @GetMapping("/{id}")
     public String showUserByID(Model model, @PathVariable("id") int id) {
         model.addAttribute("allUsers", userService.showUserByID(id));
         return "users/show";
