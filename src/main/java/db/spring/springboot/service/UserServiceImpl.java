@@ -3,12 +3,12 @@ package db.spring.springboot.service;
 import db.spring.springboot.dao.UserDAO;
 import db.spring.springboot.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Repository
+@Service
 public class UserServiceImpl implements UserService {
 
     private final UserDAO userDAO;
@@ -19,13 +19,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<User> getAllUsers() {
         return userDAO.getAllUsers();
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public User showUserByID(int id) {
         return userDAO.showUserByID(id);
     }
